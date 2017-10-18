@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Sharpen Your Saw 4</title>
+		<title>Sharpen Your Saw Hack Harvard 2017</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,7 +29,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2>Sharpen Your Saw (4)</h2>
+					<h2>Sharpen Your Saw: JavaScript</h2>
           <ol>
             <li class="fragment">The Presentation</li>
             <li class="fragment">The Challenge</li>
@@ -38,177 +38,119 @@
         </section>
 
 				<section>
-					<h3>Async/Await is Coming</h3>
-          <div class="fragment">Node 8 (April 2017, LTS October 2017)</div>
-          <div class="fragment">Everyone is very excited</div>
-          <!-- poll audience -->
+					<h3>JavaScript</h3>
+          <ul>
+            <li class="fragment">The Language</li>
+            <li class="fragment">The Community</li>
+          </ul>
         </section>
 
 				<section>
-  				<section>
-  					<h3>Paleolithic Era: Callbacks</h3>
+          <h3>Lodash</h3>
+          <ul>
+            <li>https://lodash.com</li>
+            <li>https://github.com/lodash/lodash</li>
+          </ul>
+        </section>
+
+				<section>
+          <section>
+            <h3>Not Using Map</h3>
   					<pre><code class="hljs">
-fs.readdir(path, function(err, items) {
-  console.log(items);
-});
+int[] myArray = [4, 5, 6];
+int[] newArray = new Array[];
 
-// https://code-maven.com/list-content-of-directory-with-nodejs
+// gotta add 5 to each element of the array
+for (int i = 0, i < myArray.length, i++) {
+  newArray[i] = myArray[i] + 5;
+}
 
+print(newArray);
+// [9, 10, 11]
             </code></pre>
-					</section>
+          </section>
+          <section>
+            <h3>Map</h3>
+  					<pre><code class="hljs">
+const myArray = [4, 5, 6];
+const newArray = _.map(myArray, i => i + 5);
+
+print(newArray);
+// [9, 10, 11]
+            </code></pre>
+          </section>
+          <section>
+            <h3>Functions as first-class objects</h3>
+  					<pre><code class="hljs">
+i => i + 5
+            </code></pre>
+  					<pre><code class="hljs">
+function (i) {
+  return i + 5;
+}
+            </code></pre>
+          </section>
+          <section>
+            <h3>Just use the native JavaScript function?</h3>
+  					<pre><code class="hljs">
+const newArray = _.map(myArray, i => i + 5);
+            </code></pre>
+  					<pre><code class="hljs">
+const newArray = myArray.map(i => i + 5);
+            </code></pre>
+          </section>
 
           <section>
-  					<h3>Problem with Callbacks: Pyramid of Doom</h3>
-  					<pre><code class="hljs" style="font-size:14px;line-height:16px;">
-fs.readdir(source, function (err, files) {
-  if (err) {
-    console.log('Error finding files: ' + err)
-  } else {
-    files.forEach(function (filename, fileIndex) {
-      console.log(filename)
-      gm(source + filename).size(function (err, values) {
-        if (err) {
-          console.log('Error identifying file size: ' + err)
-        } else {
-          console.log(filename + ' : ' + values)
-          aspect = (values.width / values.height)
-          widths.forEach(function (width, widthIndex) {
-            height = Math.round(width / aspect)
-            console.log('resizing ' + filename + 'to ' + height + 'x' + height)
-            this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
-              if (err) console.log('Error writing file: ' + err)
-            })
-          }.bind(this))
-        }
-      })
-    })
-  }
-})
+            <h3>The Versatility!</h3>
+  					<pre><code class="hljs">
+_.map("hello", _.identity)
+// ["h", "e", "l", "l", "o"]
+            </code></pre>
+          </section>
+        </section>
 
-// http://callbackhell.com/
+				<section>
+          <section>
+  					<h3>Reduce</h3>
+  					<pre><code class="hljs">
+_.some([2, 5, 8], i => i > 5)
+// true
             </code></pre>
   				</section>
-        </section>
-				<section>
   				<section>
-  					<h3>Mesolithic Era: Promises</h3>
+  					<h3>Compact</h3>
   					<pre><code class="hljs">
-var promise = doSomethingAync()
-promise.then(onFulfilled, onRejected)
-            </code></pre>
-  					<pre><code class="hljs">
-readFile()
-  .then(readAnotherFile)
-  .then(doSomethingElse)
-  .then(...)
-
-// https://strongloop.com/strongblog/promises-in-node-js-an-alternative-to-callbacks/
+_.compact(["Hello", null, 1, ""])
+// ["Hello", 1]
             </code></pre>
 					</section>
   				<section>
-  					<h3>Problem 1 with Promises:</h3>
+  					<h3>Intersection</h3>
   					<pre><code class="hljs">
-doSomething().then(function () {
-  return doSomethingElse();
-});
-
-doSomething().then(function () {
-  doSomethingElse();
-});
-
-doSomething().then(doSomethingElse());
-
-doSomething().then(doSomethingElse);
-
-// https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
+_.intersection([1, 4, 7], [7, 8, 9])
+// [7]
+            </code></pre>
+					</section>
+  				<section>
+  					<h3>Kebab-Case</h3>
+  					<pre><code class="hljs">
+_.kebabCase("I love JavaScript")
+// "i-love-java-script"
             </code></pre>
 					</section>
 
   				<section>
-  					<h3>Problem 2 with Promises:</h3>
-
-            The <code class="hljs" style="display: inline">doSomethingElse</code> functions
-            have to be functions that return promises.
-          </section>
-        </section>
-
-				<section>
-  				<section>
-  					<h3>Present Day: The Actual Subject of this Talk</h3>
-          </section>
-
-  				<section>
-  					<h3>Present Day: The Actual Subject of this Talk</h3>
-            <div class="fragment">github.com/tj/co</div>
-          </section>
-
-          <section>
-            <h3>Co works just like Async/Await</h3>
-            <pre><code class="hljs">
-co(function *(){
-  // yield any promise
-  var result = yield Promise.resolve(true);
-}).catch(onerror);
-
-// https://github.com/tj/co
-            </code></pre>
-          </section>
-          <section>
-            <h3>Parallel execution by yielding on an array</h3>
-            <pre><code class="hljs">
-co(function *(){
-  // resolve multiple promises in parallel
-  var a = Promise.resolve(1);
-  var b = Promise.resolve(2);
-  var c = Promise.resolve(3);
-  var res = yield [a, b, c];
-  console.log(res);
-  // => [1, 2, 3]
-}).catch(onerror);
-
-// https://github.com/tj/co
-            </code></pre>
-          </section>
-        </section>
-
-				<section>
-  				<section>
-  					<h3>Futuristic Era: Async/Await</h3>
+  					<h3>Kebab-Case</h3>
   					<pre><code class="hljs">
-const fs = require('mz/fs')
-
-async function doSomething () {
-  if (await fs.exists(__filename)) // do something
-}
-
-// https://github.com/normalize/mz
+_.some(
+  _.kebabCase("I love JavaScript").split("-"),
+  word => word.length > 8
+);
+// false
             </code></pre>
-          </section>
+					</section>
+				</section>
 
-          <section>
-            <h3>Async/Await is really nice</h3>
-            <pre><code class="hljs">
-try {
-    const response = await request(data);
-
-    if (response && response.body) {
-      const parsed = JSON.parse(response.body);
-
-      if (parsed) {
-        const isSaved = await saveData(parsed);
-      }
-    }
-} catch(err) {
-    logger.error(err);
-}
-
-// http://blog.ministryofprogramming.com/async-await-and-conditional-promises/
-            </code></pre>
-          </section>
-          <section>
-            <h3>Problem with Async/Await: It doesn't exist yet</h3>
-          </section>
-        </section>
 
       <section>
         <section>
