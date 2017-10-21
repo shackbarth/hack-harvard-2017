@@ -184,6 +184,20 @@ assert.isTrue(isLeftHanded(""));
           <section>
   					<h3>Steve H.</h3>
   					<pre><code class="hljs" style="font-size:14px;line-height:16px;">
+function isLeftHanded (s) {
+  return _.every(s, c => _.includes("QWERTYASDFGZXCVqwertyasdfgzxcv", c));
+}
+            </code></pre>
+  				</section>
+          <section>
+  					<h3>Steve H.</h3>
+  					<pre><code class="hljs" style="font-size:14px;line-height:16px;">
+function isLeftHanded(s) {
+  return _.intersection(
+    "yuiophjklbnm".split(""),
+    s.toLowerCase().split("")
+  ).length === 0;
+}
             </code></pre>
   				</section>
         </section>
