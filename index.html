@@ -179,6 +179,22 @@ assert.isTrue(isLeftHanded(""));
           <section>
   					<h3></h3>
   					<pre><code class="hljs" style="font-size:14px;line-height:16px;">
+const fs = require("fs");
+const _ = require("lodash");
+
+function isLeftHanded (s) {
+  return _.every(s, c => _.includes("QWERTYASDFGZXCVqwertyasdfgzxcv", c));
+}
+
+
+const words = fs.readFileSync("/usr/share/dict/words", "utf8");
+const wordsArray = _.compact(words.split("\n"));
+const leftHandedWords = _.filter(wordsArray, isLeftHanded);
+const sortedWords = _.sortBy(leftHandedWords, s => s.length);
+const longestWord = _.takeRight(sortedWords, 20);
+
+console.log(longestWord);
+
             </code></pre>
   				</section>
           <section>
